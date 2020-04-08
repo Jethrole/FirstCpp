@@ -1,0 +1,36 @@
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main()
+{      system("clear");
+        srand(time(NULL));
+        int i=0 ,a, bom = rand( ) % 10;
+        char q;
+        cout<<"\nWelcome to the lucky bomb game in 10!\n\nBegin! The system will automatically select a number between 0 and 10. You input a number between 0 and 10. If you input the correct number the system chooses ..... Boom! You lose!\n ";
+        cout<<"Rule:\n#.Do not input letters or characters except for YES OR NO questions.\n#.You are allowed to guess 10 times, after each guess you can choose to continue the new round or stop playing.\n";
+        cout<<"Now! Let's start!\n";
+        do{ cout<<"Input your NUMBER you think lucky: "; cin>>a;
+          if( a== bom){ cout<<"\nBoom! You lost the game!\n";
+                                     cout<<"\n\nAre you want play again?(Y/N) : "; cin>>q;
+                                     bom = rand() % 10; 
+                                     i= 0;
+                                     if ((q == 'N') || (q == 'n')) { cout<<"\nThanks for play with me!\n"; break;}
+                                     else if ((q == 'Y') || (q == 'y')) { system("clear"); continue; }}
+          else if( a!= bom){i++;
+                                        if( i == 10){cout<<"\nCongratulations ! You have won the game!\n";
+                                                            cout<<"Are you want to continute playing?(Y/N) : "; cin>>q;
+                                                            if ((q == 'N') || (q == 'n')) { cout<<"\nThanks for play with me!\n";break;}
+                                                             else if ((q == 'Y') || (q == 'y')) { 
+                                                             bom = rand() % 10;
+                                                             system("clear");
+                                                              continue; }}
+                                        else if(i == 5){cout<<"\t<^^Fighting! You've won half the way^^>"; continue;}
+                                        else if(i == 9){cout<<"\t<^^Fighting! Victory ahead! Fighting!^^>"; continue;}
+                                        else if(i< 10) { continue;};
+                                        }
+        }
+        while (a != bom);
+        system("clear");
+	return 0;
+}
